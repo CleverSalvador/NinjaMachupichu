@@ -6,6 +6,7 @@ TagManager:
   tags:
   - VirtualCamara
   - Enemigo
+  - Destruible
   layers:
   - Default
   - TransparentFX
