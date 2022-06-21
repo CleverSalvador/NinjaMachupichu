@@ -11,6 +11,10 @@ public class AreaAtaque : MonoBehaviour
            {
             collision.GetComponent<Bat>().RecibirDaño();
            }
+           else if (collision.name == "Virus")
+           {
+            collision.GetComponent<Waypoints>().RecibirDaño();
+           }
         }
     }
 }
