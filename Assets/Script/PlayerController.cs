@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("caer",false);
         anim.SetBool("die",true);
         this.enabled = false;
+        GameManager.instance.GameOver();
     }
 
     public void RecibirDaño()
