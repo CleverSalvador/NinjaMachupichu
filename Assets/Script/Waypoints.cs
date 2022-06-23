@@ -16,6 +16,9 @@ public class Waypoints : MonoBehaviour
     public Vector2 posicionCabeza;
     public float velocidadDesplazamiento;
     public List<Transform> puntos = new List<Transform>();
+    [Header("Pltaforma Movil")]
+    public bool esperando;
+    public float tiempoEspera;
 
     private void Awake() 
         {
@@ -55,7 +58,23 @@ public class Waypoints : MonoBehaviour
             }else{
                 player.RecibirDaño(-(player.transform.position-transform.position).normalized);//el jugador es empujado
             }
+        }else if(collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Plataforma"))//comparar el tag para que se dezplace por la plataforma
+        {
+            if(player.transform.position.y - 0.7f > transform.position.y)
+            {
+                player.transform.parent = transform;//mismo movimiento
+            }
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Plataforma"))//comparar el tag para que se dezplace por la plataforma
+        {
+             player.transform.parent = null;//mismo movimiento
+           
+        }
+
     }
     /*Este metodo permite cambiar la direccion de movimiento del enemigo en base al atributo escala*/
     private void CambiarEscalaEnemigo()
@@ -74,15 +93,25 @@ public class Waypoints : MonoBehaviour
     private void MovimientoWaypoints()
     {
         direccion = (puntos[indiceActual].position-transform.position).normalized;
-        transform.position = (Vector2.MoveTowards(transform.position, puntos[indiceActual].position,velocidadDesplazamiento*Time.deltaTime ));
+        if(!esperando)
+        {
+            transform.position = (Vector2.MoveTowards(transform.position, puntos[indiceActual].position,velocidadDesplazamiento*Time.deltaTime ));
+        }
+        
         if(Vector2.Distance(transform.position, puntos[indiceActual].position) <= 0.7f)/*verificamos que la distancia sea menor a 0.7 entre el enemigo y el waypoint*/
         {
-            StartCoroutine(Espera());
+            if(!esperando)
+            {
+                StartCoroutine(Espera());
+            }
+            
         }
     }
     private IEnumerator Espera()
     {
-        yield return null;
+        esperando = true;
+        yield return new WaitForSeconds(tiempoEspera);
+        esperando = false;
         indiceActual ++;
         if(indiceActual >= puntos.Count)/*verificar que no sobresalga del numero de waypoints*/
         {

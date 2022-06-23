@@ -50,7 +50,10 @@ public class PlayerController : MonoBehaviour
     {
         if(vidas > 0)
         return;
-
+        anim.SetBool("caminar",false);
+        anim.SetBool("saltar",false);
+        anim.SetBool("caer",false);
+        anim.SetBool("die",true);
         this.enabled = false;
     }
 
