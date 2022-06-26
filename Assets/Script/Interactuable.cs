@@ -10,12 +10,16 @@ public class Interactuable : MonoBehaviour
     private SpriteRenderer sp;
     private GameObject indicarInteractuable;
     private Animator anim;
-    public GameObject[] objetos;
-    public bool esCofre;
+
     //Palanca
     public UnityEvent evento;
+    
+    public GameObject[] objetos;
+
+    public bool esCofre;
     public bool esPalanca;
     public bool palancaAccionada;
+    public bool esCheckPoint;
 
 
     private void Awake() 
@@ -61,6 +65,7 @@ public class Interactuable : MonoBehaviour
         {
             Cofre();
             Palanca();
+            CheckPoint();
         }
     }
 
@@ -77,5 +82,12 @@ public class Interactuable : MonoBehaviour
             this.enabled = false;
         }
         
+    }
+    private void CheckPoint()
+    {
+        if(esCheckPoint)
+        {
+            evento.Invoke();
+        }
     }
 }

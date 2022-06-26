@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    private int direccionX;
     private Rigidbody2D rb;
     private Vector2 direccion;
     private Animator anim;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool bloqueado;
     public bool esImortal;
     public bool aplicarFuerza;
+    public bool terminandoMapa;
     [Header("Colision")]
     public float radioColision;
     public Vector2 abajo;
@@ -81,17 +83,27 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             Time.timeScale = 1;
             gc.enabled = false;
-            for(int i = GameManager.instance.vidasUI.transform.childCount -1; i>=0; i--)
-            {
-                if(GameManager.instance.vidasUI.transform.GetChild(i).gameObject.activeInHierarchy)
-                {
-                    GameManager.instance.vidasUI.transform.GetChild(i).gameObject.SetActive(false);
-                    break;
-                }
-            }
+            /*Este ciclo recorre las vidas del UI*/
+            ActualizarVidasUI(1);
             velocidadDeMovimiento = velocidadAuxiliar;
             Morir();
         }
+    }
+    public void ActualizarVidasUI(int vidasDescontar)
+    {
+        int vidasDescontadas = vidasDescontar;
+         for(int i = GameManager.instance.vidasUI.transform.childCount -1; i>=0; i--)
+            {
+                if(GameManager.instance.vidasUI.transform.GetChild(i).gameObject.activeInHierarchy && vidasDescontadas != 0)
+                {
+                    GameManager.instance.vidasUI.transform.GetChild(i).gameObject.SetActive(false);
+                    vidasDescontadas--;
+                }else
+                {
+                    if(vidasDescontadas == 0)
+                        break;
+                }
+            }
     }
     private void FixedUpdate()
     {
@@ -121,6 +133,22 @@ public class PlayerController : MonoBehaviour
         }
         esImortal =  false;
     }
+    public void MovimientoFinalMapa(int direccionX) /*Jugador camina solo hacia el trigger */
+    {
+        terminandoMapa = true;
+        this.direccionX = direccionX;
+        anim.SetBool("caminar",true);
+         if(this.direccionX < 0 && transform.localScale.x > 0)
+        {
+            direccionMovimiento = DireccionAtaque(Vector2.left,direccion);
+            transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+        }else if(this.direccionX > 0 && transform.localScale.x < 0)
+        {
+             transform.localScale = new Vector3 (Mathf.Abs(-transform.localScale.x), transform.localScale.y, transform.localScale.z);
+             
+        }
+    }
     void Start()
     {
         
@@ -129,8 +157,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movimiento();
-        Agarres();
+        if(!terminandoMapa)
+        {
+             Movimiento();
+             Agarres();
+        }
+       else{
+        rb.velocity = new Vector2(direccionX*velocidadDeMovimiento, rb.velocity.y);
+       }
     }
     private void Atacar(Vector2 direccion)
     {
@@ -284,9 +318,9 @@ public class PlayerController : MonoBehaviour
                     direccionMovimiento = DireccionAtaque(Vector2.left,direccion);
                     transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-                }else if(direccion.x > 0 && transform.localScale.x < 0)
+                }else if(direccion.x > 0 && transform.localScale.x < 0)//
                 {
-                    transform.localScale = new Vector3 (Mathf.Abs(-transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    transform.localScale = new Vector3 (Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                     direccionMovimiento = DireccionAtaque(Vector2.right,direccion);
                  }
             

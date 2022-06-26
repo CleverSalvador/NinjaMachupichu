@@ -10,6 +10,7 @@ TagManager:
   - Plataforma
   - Moneda
   - PowerUp
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 2472571515
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Props
+    uniqueID: 1398779325
+    locked: 0
+  - name: Tiles
+    uniqueID: 2195012471
+    locked: 0
+  - name: Player
+    uniqueID: 2099440183
+    locked: 0
+  - name: UI
+    uniqueID: 625386671
     locked: 0
