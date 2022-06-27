@@ -20,7 +20,7 @@ public class Interactuable : MonoBehaviour
     public bool esPalanca;
     public bool palancaAccionada;
     public bool esCheckPoint;
-
+    public bool selector;
 
     private void Awake() 
     {
@@ -66,6 +66,7 @@ public class Interactuable : MonoBehaviour
             Cofre();
             Palanca();
             CheckPoint();
+            SeleccionarNivel();
         }
     }
 
@@ -86,6 +87,14 @@ public class Interactuable : MonoBehaviour
     private void CheckPoint()
     {
         if(esCheckPoint)
+        {
+            evento.Invoke();
+        }
+    }
+    /*En el levelselect llamar al evento para que cargue la escena*/
+    private void SeleccionarNivel()
+    {
+        if(selector)
         {
             evento.Invoke();
         }

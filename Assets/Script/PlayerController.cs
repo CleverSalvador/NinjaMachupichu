@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 direccionDaño;
     private GrayCamera gc;
     private SpriteRenderer sp;
+    private GameObject ultimoEnemigo; //Mantener invulnerabilidad
     [Header("Estadisticas")]
     public float velocidadDeMovimiento = 10;
     public float fuerzaSalto = 7;
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Inmortalidad());
             vidas--;
+            anim.SetTrigger("daño");
             gc.enabled = true;
             float velocidadAuxiliar = velocidadDeMovimiento;
             this.direccionDaño = direccionDaño;
@@ -140,7 +142,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("caminar",true);
          if(this.direccionX < 0 && transform.localScale.x > 0)
         {
-            direccionMovimiento = DireccionAtaque(Vector2.left,direccion);
             transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
         }else if(this.direccionX > 0 && transform.localScale.x < 0)
@@ -165,6 +166,23 @@ public class PlayerController : MonoBehaviour
        else{
         rb.velocity = new Vector2(direccionX*velocidadDeMovimiento, rb.velocity.y);
        }
+       if(esImortal && ultimoEnemigo != null)//dejamos de ignorar la collision con los enemigos
+            {
+                Physics2D.IgnoreCollision(ultimoEnemigo.GetComponent<Collider2D>(), GetComponent<Collider2D>(),false);//ignoramos las colisiones durante la invulnrabilidad
+                ultimoEnemigo = null;
+            }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemigo"))
+        {
+            if(esImortal)
+            {
+                ultimoEnemigo = collision.gameObject;
+                Physics2D.IgnoreCollision(ultimoEnemigo.GetComponent<Collider2D>(), GetComponent<Collider2D>(),true);//ignoramos las colisiones durante la invulnrabilidad
+            }
+            //debemos de validar cuando dejo de ser inmortal, esto lo hacemos dentro del update
+        }
     }
     private void Atacar(Vector2 direccion)
     {

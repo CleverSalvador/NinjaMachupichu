@@ -18,7 +18,9 @@ public class Waypoints : MonoBehaviour
     public List<Transform> puntos = new List<Transform>();
     [Header("Pltaforma Movil")]
     public bool esperando;
+    private bool agitando;
     public float tiempoEspera;
+    public float fuerzaImpacto;
 
     private void Awake() 
         {
@@ -43,6 +45,11 @@ public class Waypoints : MonoBehaviour
         if(gameObject.CompareTag("Enemigo"))
         {
             CambiarEscalaEnemigo();
+        }
+        if(aplicarFuerza)
+        {
+            rb.AddForce((transform.position - player.transform.position).normalized*fuerzaImpacto, ForceMode2D.Impulse);
+            aplicarFuerza = false;
         }
     }
 
@@ -129,7 +136,13 @@ public class Waypoints : MonoBehaviour
         }
         else
         {
-            StartCoroutine(AgitarCamara(0.1f));
+            StartCoroutine(UltimoAgitarCamara(0.3f));
+        }
+    }
+    private void Morir()
+    {
+        if(vidas <= 0)
+        {
             velocidadDesplazamiento = 0;
             rb.velocity = Vector2.zero;
             Destroy(this.gameObject,0.2f);
@@ -137,10 +150,32 @@ public class Waypoints : MonoBehaviour
     }
      private IEnumerator AgitarCamara(float tiempo)
     {
-        CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
-        yield return new WaitForSeconds(tiempo);
-        c.m_AmplitudeGain = 0;
+        if(!agitando)
+        {
+            agitando = true;
+            CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
+            yield return new WaitForSeconds(tiempo);
+            c.m_AmplitudeGain = 0;
+            //Morir();
+            agitando = false;
+        }
+       
+    }
+    private IEnumerator UltimoAgitarCamara(float tiempo)
+    {
+        if(!agitando)
+        {
+            transform.localScale = Vector3.zero;
+            agitando = true;
+            CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
+            yield return new WaitForSeconds(tiempo);
+            c.m_AmplitudeGain = 0;
+            Morir();
+            agitando = false;
+        }
+       
     }
      private IEnumerator EfectoDaño()
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;//Cambio de escena probar
 public class DeteccionFinal : MonoBehaviour
 {
     public bool avanzando;
@@ -13,12 +13,13 @@ public class DeteccionFinal : MonoBehaviour
             GameManager.instance.ActivarPanelTransicion();
             GameManager.instance.avanzandoNivel = avanzando;
             StartCoroutine(EsperarCambioPosicion());
+            //SceneManager.LoadScene("LevelSelect");//probando
         }
     }
 
     private IEnumerator EsperarCambioPosicion()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         GameManager.instance.CambiarPosicionJugador();
         if(avanzando)
             GameManager.instance.nivelActual++;

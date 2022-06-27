@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PanelTransicion : MonoBehaviour
 {
-     public void AparecerJuego()
+    public void AparecerJuego()
     {
         gameObject.GetComponent<Animator>().SetTrigger("aparecer");
     }

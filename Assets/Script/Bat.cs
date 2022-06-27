@@ -12,7 +12,7 @@ public class Bat : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool aplicarFuerza;
-   
+    private bool agitando;
 
     public float velocidadDeMovimiento = 3;
     public float radioDeDeteccion = 15;
@@ -96,26 +96,57 @@ public class Bat : MonoBehaviour
     }
 
     public void RecibirDaño()
-    {
-        StartCoroutine(AgitarCamara(0.1f));
+    {      
         if(vidas > 0)
         {
-            StartCoroutine(EfectoDaño());           
+            StartCoroutine(EfectoDaño());
+            StartCoroutine(AgitarCamara(0.1f));           
             aplicarFuerza = true;
             vidas --;
         }
         else{
             SetAnimDeath();
+            StartCoroutine(UltimoAgitarCamara(0.3f));          
+        }
+    }
+    private void Morir()
+    {
+        if(vidas <= 0)
+        {
             Destroy(gameObject,0.2f);
         }
     }
 
     private IEnumerator AgitarCamara(float tiempo)
     {
-        CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
-        yield return new WaitForSeconds(tiempo);
-        c.m_AmplitudeGain = 0;
+        if(!agitando)
+        {
+            transform.localScale = Vector3.zero;
+            agitando = true;
+            CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
+            yield return new WaitForSeconds(tiempo);
+            c.m_AmplitudeGain = 0;
+            //Morir();
+            agitando = false;
+        }
+        
+    }
+
+    private IEnumerator UltimoAgitarCamara(float tiempo)
+    {
+        if(!agitando)
+        {
+            transform.localScale = Vector3.zero;
+            agitando = true;
+            CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/
+            yield return new WaitForSeconds(tiempo);
+            c.m_AmplitudeGain = 0;
+            Morir();
+            agitando = false;
+        }
+       
     }
     private IEnumerator EfectoDaño()
     {
