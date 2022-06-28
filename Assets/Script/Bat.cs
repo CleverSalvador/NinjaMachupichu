@@ -13,7 +13,7 @@ public class Bat : MonoBehaviour
     private Animator anim;
     private bool aplicarFuerza;
     private bool agitando;
-
+    public GameObject deathEfect;
     public float velocidadDeMovimiento = 3;
     public float radioDeDeteccion = 15;
     public float fuerzaImpacto = 100;
@@ -78,6 +78,7 @@ public class Bat : MonoBehaviour
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up*player.fuerzaSalto;
                 StartCoroutine(AgitarCamara(0.1f));
+                Instantiate(deathEfect, transform.position, transform.rotation);
                 Destroy(gameObject,0.2f);
             }
             else
@@ -113,7 +114,9 @@ public class Bat : MonoBehaviour
     {
         if(vidas <= 0)
         {
+            
             Destroy(gameObject,0.2f);
+            Instantiate(deathEfect, transform.position, transform.rotation);
         }
     }
 
@@ -121,7 +124,6 @@ public class Bat : MonoBehaviour
     {
         if(!agitando)
         {
-            transform.localScale = Vector3.zero;
             agitando = true;
             CinemachineBasicMultiChannelPerlin c = cm.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             c.m_AmplitudeGain = 5;/*modificamos el valor de la agitacion de la camara*/

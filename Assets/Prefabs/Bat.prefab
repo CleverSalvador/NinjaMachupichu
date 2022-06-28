@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65167123f320794e9990829481ad49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEfect: {fileID: 1079066216640084574, guid: 67109b649cf4e0c47ae25d81fe061d29,
+    type: 3}
   velocidadDeMovimiento: 3
   radioDeDeteccion: 7
   fuerzaImpacto: 100

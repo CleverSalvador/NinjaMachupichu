@@ -231,6 +231,8 @@ MonoBehaviour:
   puntos:
   - {fileID: 1068750706704349481}
   - {fileID: 1068750706302349457}
+  deathEfect: {fileID: 1079066216640084574, guid: 67109b649cf4e0c47ae25d81fe061d29,
+    type: 3}
   esperando: 0
   tiempoEspera: 0
   fuerzaImpacto: 5

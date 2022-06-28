@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
             {
 
                 //validamos que no sobrepase de los niveles que hay
-                //player.transform.position = posicionesAvance[nivelActual+1].transform.position;
+                player.transform.position = posicionesAvance[nivelActual+1].transform.position;
                 SceneManager.LoadScene(nivelsiguiente);
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 player.GetComponent<Animator>().SetBool("caminar",false);
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             if(posicionesRetroceder.Count < nivelActual - 1)
             {
                 SceneManager.LoadScene(nivelAnterior);
-                //player.transform.position = posicionesRetroceder[nivelActual-1].transform.position;
+                player.transform.position = posicionesRetroceder[nivelActual-1].transform.position;
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 player.GetComponent<Animator>().SetBool("caminar",false);
                 player.terminandoMapa = false;

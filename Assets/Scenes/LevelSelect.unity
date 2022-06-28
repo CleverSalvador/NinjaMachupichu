@@ -571,9 +571,11 @@ MonoBehaviour:
   avanzandoNivel: 0
   nivelActual: 0
   posicionesAvance:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 283193561}
+  - {fileID: 283193561}
   posicionesRetroceder: []
+  nivelsiguiente: 
+  nivelAnterior: 
 --- !u!4 &235239521
 Transform:
   m_ObjectHideFlags: 0

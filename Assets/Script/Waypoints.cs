@@ -16,6 +16,7 @@ public class Waypoints : MonoBehaviour
     public Vector2 posicionCabeza;
     public float velocidadDesplazamiento;
     public List<Transform> puntos = new List<Transform>();
+    public GameObject deathEfect;
     [Header("Pltaforma Movil")]
     public bool esperando;
     private bool agitando;
@@ -61,7 +62,8 @@ public class Waypoints : MonoBehaviour
             if(player.transform.position.y - 0.7f > transform.position.y + posicionCabeza.y)
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up*player.fuerzaSalto;//le damos un impulso al jugador
-                Destroy(this.gameObject,0.2f);//se destruye el enemigo
+                Instantiate(deathEfect,transform.position,transform.rotation);
+                Destroy(this.gameObject,0.2f);//se destruye el enemigo, PROBAMDO
             }else{
                 player.RecibirDaño(-(player.transform.position-transform.position).normalized);//el jugador es empujado
             }
@@ -145,6 +147,7 @@ public class Waypoints : MonoBehaviour
         {
             velocidadDesplazamiento = 0;
             rb.velocity = Vector2.zero;
+            Instantiate(deathEfect, transform.position, transform.rotation);
             Destroy(this.gameObject,0.2f);
         }
     }
