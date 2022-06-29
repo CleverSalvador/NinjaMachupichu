@@ -11,6 +11,8 @@ TagManager:
   - Moneda
   - PowerUp
   - CheckPoint
+  - NPC
+  - EnemigoWP
   layers:
   - Default
   - TransparentFX

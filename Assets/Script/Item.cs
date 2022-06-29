@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public GameObject pickutEfect;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -21,7 +22,7 @@ public class Item : MonoBehaviour
         {
             GameManager.instance.player.DarInmortalidad();
         }
-
+        Instantiate(pickutEfect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

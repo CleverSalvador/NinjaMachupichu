@@ -47,6 +47,10 @@ public class Waypoints : MonoBehaviour
         {
             CambiarEscalaEnemigo();
         }
+        if(gameObject.CompareTag("NPC"))
+        {
+            CambiarEscalaEnemigo();
+        }
         if(aplicarFuerza)
         {
             rb.AddForce((transform.position - player.transform.position).normalized*fuerzaImpacto, ForceMode2D.Impulse);
@@ -56,7 +60,7 @@ public class Waypoints : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemigo"))
+        if(collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemigo") || gameObject.CompareTag("EnemigoWP") )
         {
             /*Verificamos si los pies del player estan encima de la cabeza del enemigo*/
             if(player.transform.position.y - 0.7f > transform.position.y + posicionCabeza.y)

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605fe376ead37648805b49a715b97ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickutEfect: {fileID: 0}
 --- !u!95 &7378702072227914450
 Animator:
   serializedVersion: 3
