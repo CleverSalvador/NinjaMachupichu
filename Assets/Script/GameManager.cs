@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 public class GameManager : MonoBehaviour
 {
     private bool ejecutando;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelGameOver;
     public GameObject panelCarga;
     public GameObject panelTransicion;
-
+    public AudioSource clip;
     public bool avanzandoNivel;
     public int nivelActual;
     public List<Transform> posicionesAvance = new List<Transform>();
@@ -171,5 +172,9 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(30);
         }
+    }
+    public void PlaySoundButton()
+    {
+        clip.Play();
     }
 }
