@@ -44977,16 +44977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391196, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391143, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: tiepoInmortalidad
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3687752647605391192, guid: a50fc16af1f06a342b08190b5b398ea6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45041,36 +45031,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391194, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391194, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.55999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391194, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.0299999
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391194, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391193, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2099440183
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687752647605391193, guid: a50fc16af1f06a342b08190b5b398ea6,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a50fc16af1f06a342b08190b5b398ea6, type: 3}

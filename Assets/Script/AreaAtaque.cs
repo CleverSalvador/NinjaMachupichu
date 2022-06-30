@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AreaAtaque : MonoBehaviour
 {
+
      private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Enemigo"))
         {
@@ -19,5 +20,6 @@ public class AreaAtaque : MonoBehaviour
            {
             collision.GetComponent<Animator>().SetBool("destruir",true);
            }
+
     }
 }

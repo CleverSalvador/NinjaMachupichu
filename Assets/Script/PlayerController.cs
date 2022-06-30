@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.Audio;
 public class PlayerController : MonoBehaviour
 {
     private int direccionX;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private GrayCamera gc;
     private SpriteRenderer sp;
     private GameObject ultimoEnemigo; //Mantener invulnerabilidad
+    public AudioSource soundSalto;
     [Header("Estadisticas")]
     public float velocidadDeMovimiento = 10;
     public float fuerzaSalto = 7;
@@ -273,6 +274,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             if(enSuelo){
                 anim.SetBool("saltar",true);
+                soundSalto.Play();
                 Salto();
             }
         }
