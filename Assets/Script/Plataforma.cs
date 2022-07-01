@@ -23,6 +23,7 @@ public class Plataforma : MonoBehaviour
             if(daSalto)
             {
                 aplicarFuerza = true;
+                AudioManager.instance.PlaySFX(5);
             }
         }
     }

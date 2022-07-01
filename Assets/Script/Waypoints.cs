@@ -67,6 +67,7 @@ public class Waypoints : MonoBehaviour
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up*player.fuerzaSalto;//le damos un impulso al jugador
                 Instantiate(deathEfect,transform.position,transform.rotation);
+                AudioManager.instance.PlaySFX(6);
                 Destroy(this.gameObject,0.2f);//se destruye el enemigo, PROBAMDO
             }else{
                 player.RecibirDaño(-(player.transform.position-transform.position).normalized);//el jugador es empujado
@@ -152,6 +153,7 @@ public class Waypoints : MonoBehaviour
             velocidadDesplazamiento = 0;
             rb.velocity = Vector2.zero;
             Instantiate(deathEfect, transform.position, transform.rotation);
+            AudioManager.instance.PlaySFX(6);
             Destroy(this.gameObject,0.2f);
         }
     }

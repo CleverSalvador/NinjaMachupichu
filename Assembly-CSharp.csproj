@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AreaAtaque.cs" />
+     <Compile Include="Assets\Script\AudioManager.cs" />
      <Compile Include="Assets\Script\Bat.cs" />
      <Compile Include="Assets\Script\Caida.cs" />
      <Compile Include="Assets\Script\DestroyOverTime.cs" />

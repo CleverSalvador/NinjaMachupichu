@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject panelGameOver;
     public GameObject panelCarga;
     public GameObject panelTransicion;
-    public AudioSource clip;
     public bool avanzandoNivel;
     public int nivelActual;
     public List<Transform> posicionesAvance = new List<Transform>();
@@ -175,6 +174,6 @@ public class GameManager : MonoBehaviour
     }
     public void PlaySoundButton()
     {
-        clip.Play();
+        AudioManager.instance.PlaySFX(3);
     }
 }

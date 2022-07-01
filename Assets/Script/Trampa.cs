@@ -14,6 +14,7 @@ public class Trampa : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerController>().RecibirDaño(-(collision.transform.position-transform.position).normalized);
+            AudioManager.instance.PlaySFX(7);
         }
     }
     

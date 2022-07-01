@@ -5,7 +5,6 @@ using UnityEngine.Audio; //libreria para los audios
 public class Item : MonoBehaviour
 {
     public GameObject pickutEfect;
-    public AudioSource clip;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -25,6 +24,6 @@ public class Item : MonoBehaviour
         }
         Instantiate(pickutEfect, transform.position, transform.rotation);
         Destroy(gameObject,0.15f);
-        clip.Play();
+        AudioManager.instance.PlaySFX(2);
     }
 }

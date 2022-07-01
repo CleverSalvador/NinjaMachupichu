@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private GrayCamera gc;
     private SpriteRenderer sp;
     private GameObject ultimoEnemigo; //Mantener invulnerabilidad
-    public AudioSource soundSalto;
     [Header("Estadisticas")]
     public float velocidadDeMovimiento = 10;
     public float fuerzaSalto = 7;
@@ -76,6 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Inmortalidad());
             vidas--;
+            AudioManager.instance.PlaySFX(7);
             anim.SetTrigger("daño");
             gc.enabled = true;
             float velocidadAuxiliar = velocidadDeMovimiento;
@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
                 anim.SetFloat("ataqueX", direccion.x);
                 anim.SetFloat("ataqueY",direccion.y);
                 anim.SetBool("atacar",true);
+                AudioManager.instance.PlaySFX(1);
             }
         }
     }
@@ -274,7 +275,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             if(enSuelo){
                 anim.SetBool("saltar",true);
-                soundSalto.Play();
+                AudioManager.instance.PlaySFX(4);
                 Salto();
             }
         }

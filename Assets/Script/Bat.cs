@@ -79,6 +79,7 @@ public class Bat : MonoBehaviour
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up*player.fuerzaSalto;
                 StartCoroutine(AgitarCamara(0.1f));
                 Instantiate(deathEfect, transform.position, transform.rotation);
+                AudioManager.instance.PlaySFX(6);
                 Destroy(gameObject,0.2f);
             }
             else
@@ -114,9 +115,10 @@ public class Bat : MonoBehaviour
     {
         if(vidas <= 0)
         {
-            
-            Destroy(gameObject,0.2f);
             Instantiate(deathEfect, transform.position, transform.rotation);
+            AudioManager.instance.PlaySFX(6);
+            Destroy(gameObject,0.2f);
+            
         }
     }
 
