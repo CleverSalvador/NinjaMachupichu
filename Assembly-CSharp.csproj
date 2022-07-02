@@ -64,6 +64,9 @@
      <Compile Include="Assets\Script\GrayCamera.cs" />
      <Compile Include="Assets\Script\Interactuable.cs" />
      <Compile Include="Assets\Script\Item.cs" />
+     <Compile Include="Assets\Script\MusicaContinua.cs" />
+     <Compile Include="Assets\Script\MusicaPlay.cs" />
+     <Compile Include="Assets\Script\MusicaStop.cs" />
      <Compile Include="Assets\Script\PanelTransicion.cs" />
      <Compile Include="Assets\Script\Plataforma.cs" />
      <Compile Include="Assets\Script\PlayerController.cs" />

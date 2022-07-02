@@ -13,6 +13,7 @@ TagManager:
   - CheckPoint
   - NPC
   - EnemigoWP
+  - musica
   layers:
   - Default
   - TransparentFX
