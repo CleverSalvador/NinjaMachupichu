@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 10155
+  controlID: 784
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 498}
   m_MaxSize: {x: 14006, y: 14048}
   vertical: 1
-  controlID: 10038
+  controlID: 881
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 224}
   m_MaxSize: {x: 8002, y: 4024}
   vertical: 0
-  controlID: 10039
+  controlID: 882
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 336, y: 274}
   m_MaxSize: {x: 14006, y: 10024}
   vertical: 0
-  controlID: 10017
+  controlID: 798
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -435,9 +435,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -13.380889, y: 4.8862824, z: 7.059458}
+    m_Target: {x: 948.16364, y: 369.61285, z: 22.75}
     speed: 2
-    m_Value: {x: -13.380889, y: 4.8862824, z: 7.059458}
+    m_Value: {x: 948.16364, y: 369.61285, z: 22.75}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -469,9 +469,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 14.401324
+    m_Target: 1348.1302
     speed: 2
-    m_Value: 14.401324
+    m_Value: 1348.1302
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -927,7 +927,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 8a36ffff7a3effff7242ffff6a48ffffa04fffff1457ffff6670fffffc74ffff147dffff4a82ffff4e86fffffa86ffff8a8bffffc893ffff5a94ffffd898ffffb29cffffd29fffffd4a6ffff5aacffff9ac1ffffa0c9ffffa4d1ffff26d6ffff18daffff12e2fffff0e5ffffb2eeffffd2fbffffc03700005a38000070390000c6390000ca390000ce3900003e3b0000e065000006670000708d0000968e000088ff00009e0001000c010100a8020100c0060100a208010062090100c80b0100de0e0100d80f0100e00f01000e2c0100442c0100882f0100c42f0100b0b60100e4b60100d8ce010012cf010074e60100a8e60100a0ed0100bef60100ba180200cc190200d4190200
+      m_ExpandedIDs: 10f7ffffd2fbffff145a0000425a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1018,20 +1018,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/UI
   m_ViewMode: 1
   m_StartGridSize: 70
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/UI
   m_LastFoldersGridSize: 70
   m_LastProjectPath: C:\Users\ryuze\OneDrive\Escritorio\Juego_TrabajoFinal\NinjaMachupichu
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 461}
-    m_SelectedIDs: dc250000
-    m_LastClickedID: 9692
-    m_ExpandedIDs: 00000000420b0000ec0f00005c100000641400000c16000032170000dc170000a6220000d4230000362400006c2400000c2500008c2700005c29000096290000f0290000562b00004e2c0000a22e0000082f00003a360000b6360000785a000000ca9a3b
+    scrollPos: {x: 0, y: 1293}
+    m_SelectedIDs: 8a200000
+    m_LastClickedID: 8330
+    m_ExpandedIDs: 000000004c0b0000f60f0000661000006e140000161600003c170000e6170000b0220000de2300004024000076240000162500009627000068290000a2290000fc290000622b00005a2c0000b22e0000182f00004c360000c8360000d859000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1059,7 +1059,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000420b0000ec0f00005c100000641400000c16000032170000dc170000a6220000d4230000362400006c2400000c2500008c2700005c29000096290000f0290000562b00004e2c0000a22e0000082f00003a360000b6360000785a000000ca9a3b
+    m_ExpandedIDs: 000000004c0b0000f60f0000661000006e140000161600003c170000e6170000b0220000de2300004024000076240000162500009627000068290000a2290000fc290000622b00005a2c0000b22e0000182f00004c360000c8360000d859000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
