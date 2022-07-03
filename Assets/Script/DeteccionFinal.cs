@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;//Cambio de escena probar
 public class DeteccionFinal : MonoBehaviour
 {
     public bool avanzando;
-    
+    public GameObject textLevelCompletado;
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Player"))
         {
@@ -19,6 +20,7 @@ public class DeteccionFinal : MonoBehaviour
 
     private IEnumerator EsperarCambioPosicion()
     {
+        textLevelCompletado.SetActive(true);
         yield return new WaitForSeconds(0.15f);
         GameManager.instance.CambiarPosicionJugador();
         if(avanzando)
