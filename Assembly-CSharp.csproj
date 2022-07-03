@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\Caida.cs" />
      <Compile Include="Assets\Script\DestroyOverTime.cs" />
      <Compile Include="Assets\Script\DeteccionFinal.cs" />
+     <Compile Include="Assets\Script\EndGame.cs" />
      <Compile Include="Assets\Script\FondoMovimiento.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\GrayCamera.cs" />
